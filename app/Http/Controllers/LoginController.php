@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {
@@ -15,6 +15,6 @@ class LoginController extends Controller
         $twitter_access_token_secret = getenv('TWITTER_ACCESS_SECRET');
 
         $twitter = new TwitterOAuth($twitter_api_key, $twitter_api_secret_key, $twitter_access_token, $twitter_access_token_secret);
-        $twitter->post("statuses/update", array("status" => "TEST Tweet."));
+        $twitter->post("statuses/update", ["status" => "TEST Tweet."]);
     }
 }
